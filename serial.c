@@ -103,7 +103,7 @@ void serial_put_number(int num) {
     while (i--) {
         serial_put_char(buffer[i]);
     }
-    serial_put_char('\n'); // Separador para que el script en PC lo lea fácil
+    //serial_put_char('\n'); // Separador para que el script en PC lo lea fácil
 }
 
 void serial_put_string(const char* s) {
@@ -116,3 +116,22 @@ void serial_put_two_digits(uint8_t n) {
     serial_put_char('0' + (n / 10));
     serial_put_char('0' + (n % 10));
 }
+
+void serial_print_float(float value) {
+    // Manejar negativos
+    if (value < 0) {
+        serial_put_char('-');
+        value = -value;
+    }
+
+    long entero = (long)value;
+    long decimals = (long)((value - entero) * 100);
+
+    serial_put_number(entero);
+
+    serial_put_char('.');
+    if (decimals < 10) serial_put_char('0');  // siempre dos dígitos
+    serial_put_number(decimals);
+    serial_put_char('\n');
+}
+
