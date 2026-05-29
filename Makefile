@@ -7,7 +7,7 @@ LDFLAGS = -mmcu=atmega328p
 
 # Archivos
 APP = adc
-OBJETOS = main.o serial.o sht31.o twi.o utils.o
+OBJETOS = main.o serial.o sht31.o twi.o utils.o gpio.o ultrasound.o
 FIRMWARE = $(APP).hex
 
 # Objetivo por defecto
