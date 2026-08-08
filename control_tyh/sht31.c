@@ -4,7 +4,7 @@
 #include <math.h> // Para la función NAN
 #include "sht31.h"
 #include "twi.h"
-#include "serial.h"
+//#include "serial.h"
 
 // Eliminada la declaración conflictiva 'uint8_t *response_data;'
 // El buffer global para guardar los datos recibidos (máximo 6 bytes)
@@ -164,8 +164,8 @@ int sht31_read_temp_hum(void) {
     serial_put_string(" hum=");
     serial_print_float(sht31_humidity);
     serial_put_string("\r\n");
-}*/
-    
+*/
+
     return 1;
 }
 
