@@ -4,8 +4,6 @@
 #include <math.h>
 #include "twi.h"
 #include "sht31.h"
-#include "gpio.h"
-
 #define  HIGH_TEMP 37.8
 #define  LOW_TEMP 38.9
 extern float sht31_temperature;
@@ -17,7 +15,7 @@ int main(void){
     int loopCnt = 0;
     int enableHeater = 0;
     
-    gpio_output(13);
+    
 
     twi_init();
     _delay_ms(5000);
